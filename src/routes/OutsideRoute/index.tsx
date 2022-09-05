@@ -2,8 +2,9 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
 // import LogoHeaderLeft from '@vbike/components/LogoHeaderLeft';
-import {OutsideScreenParams, ScreensName} from '@src/routes/types';
-import Notification from '@src/screens/Notification';
+
+import {OutsideScreenParams, ScreensName} from '../types';
+import Notification from '../../screens/Notification';
 
 const OutsideStack = createStackNavigator<OutsideScreenParams>();
 

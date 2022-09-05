@@ -3,7 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import OutsideRoute from './OutsideRoute';
 // import { useAuthenStateValue } from '@vbike/atom/authen';
 import InsideRoute from './InsideRoute';
-import {RootStackScreensParams, ScreensName} from '@src/routes/types';
+import {RootStackScreensParams, ScreensName} from './types';
 
 const RootStack = createStackNavigator<RootStackScreensParams>();
 
