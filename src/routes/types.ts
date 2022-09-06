@@ -1,4 +1,5 @@
 // import {NavigatorScreenParams} from '@react-navigation/native';
+import {NavigatorScreenParams} from '@react-navigation/native';
 import {StackScreenProps} from '@react-navigation/stack';
 
 // import { LatLng } from 'react-native-maps';
@@ -6,7 +7,11 @@ import {StackScreenProps} from '@react-navigation/stack';
 export enum ScreensName {
   Outside = 'Outside',
   Inside = 'Inside',
-  test = 'test',
+  SignIn = 'SignIn',
+  Home = 'Home',
+  Account = 'Account',
+  HomeRoute = 'HomeRoute',
+  AccountRoute = 'AccountRoute',
 }
 
 export type AccountStackScreensParams = {
@@ -40,25 +45,22 @@ export type UnlockRouteStackScreensProps<
 > = StackScreenProps<UnlockRouteStackScreensParams, T>;
 
 export type HomeRouteStackScreensParams = {
-  // [ScreensName.RentScreen]: undefined;
+  [ScreensName.Home]: undefined;
 };
 
 export type HomeRouteScreenProps<T extends keyof HomeRouteStackScreensParams> =
   StackScreenProps<HomeRouteStackScreensParams, T>;
 
 export type InsideScreenParams = {
-  // [ScreensName.BuyTicketRoute]: NavigatorScreenParams<BuyTicketRouteStackScreensParams>;
-  // [ScreensName.RentRoute]: NavigatorScreenParams<RentRouteStackScreensParams>;
-  // [ScreensName.HomeRoute]: NavigatorScreenParams<HomeRouteStackScreensParams>;
-  // [ScreensName.AccountTab]: NavigatorScreenParams<AccountStackScreensParams>;
-  // [ScreensName.UnlockRoute]: NavigatorScreenParams<UnlockRouteStackScreensParams>;
+  [ScreensName.HomeRoute]: NavigatorScreenParams<HomeRouteStackScreensParams>;
+  [ScreensName.AccountRoute]: NavigatorScreenParams<AccountStackScreensParams>;
 };
 
 export type InsideScreenProps<T extends keyof InsideScreenParams> =
   StackScreenProps<InsideScreenParams, T>;
 
 export type OutsideScreenParams = {
-  [ScreensName.test]: undefined;
+  [ScreensName.SignIn]: undefined;
 };
 
 export type OutsideScreenProps<T extends keyof OutsideScreenParams> =

@@ -18,7 +18,7 @@ export interface BoxProps extends ViewProps, TouchableOpacityProps {
   align?: Align;
   alignSelf?: AlignSelf;
   flex?: number;
-  square?: number;
+  size?: number;
   circle?: number;
   width?: string | number;
   height?: string | number;

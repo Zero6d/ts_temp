@@ -83,7 +83,7 @@ const styles: any = {
       alignSelf: alignment,
     };
   },
-  square: (number: string | number): ViewStyle => {
+  size: (number: string | number): ViewStyle => {
     return {
       height: number,
       width: number,

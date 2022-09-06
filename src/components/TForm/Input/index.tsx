@@ -1,9 +1,10 @@
 import Box from '@src/components/Box';
 import Icon from '@src/components/Icon';
-import LoadingScreen from '@src/components/Loading';
+import ImageIcon from '@src/components/ImageIcon';
 import Typography from '@src/components/Typography';
 import theme from '@src/configs/theme';
 import COLORS from '@src/configs/theme/colors';
+import {FontFamilyNames} from '@src/configs/theme/typography';
 import React, {useMemo} from 'react';
 import {
   ActivityIndicator,
@@ -12,7 +13,6 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import {borderError, borderInput, defaultInput, stylesText} from './styles';
 
 import {InputProps} from './types';
 
@@ -93,10 +93,10 @@ const Input: React.FC<InputProps> = ({
           )}
           <Box
             style={StyleSheet.flatten([
-              defaultInput,
-              props.value && borderInput,
+              styles.defaultInput,
+              props.value && {borderColor: COLORS.BG_700},
               props.style && props.style,
-              meta && meta.errors && meta.errors[0] && borderError,
+              meta && meta.errors && meta.errors[0] && {borderColor: '#FF0900'},
             ])}>
             {prefix}
             <Box flex={1}>
@@ -121,7 +121,7 @@ const Input: React.FC<InputProps> = ({
                   editable={!disabled}
                   {...props}
                   style={StyleSheet.flatten([
-                    stylesText,
+                    styles.stylesText,
                     inputStyle && inputStyle,
                   ])}
                 />
@@ -140,7 +140,7 @@ const Input: React.FC<InputProps> = ({
 
             {allowClear && (
               <Box activePress onPress={onClear}>
-                <Icon name="x" size={24} color={COLORS.BLUE_GREY_700} />
+                <ImageIcon name="x" size={24} color={COLORS.BLUE_GREY_700} />
               </Box>
             )}
           </Box>
@@ -161,3 +161,25 @@ const Input: React.FC<InputProps> = ({
   };
 
 export default Input;
+
+const styles = StyleSheet.create({
+  defaultInput: {
+    height: 54,
+    borderWidth: 1,
+    borderRadius: 8,
+    paddingLeft: 16,
+    paddingRight: 16,
+    alignItems: 'center',
+    backgroundColor: COLORS.WHITE,
+    flexDirection: 'row',
+    borderColor: '#D6D5DD',
+  },
+  stylesText: {
+    flexWrap: 'wrap',
+    fontSize: 16,
+    backgroundColor: COLORS.WHITE,
+    color: COLORS.MONO_100,
+    fontFamily: FontFamilyNames.POPPINS_REGULAR,
+    lineHeight: 24,
+  },
+});
