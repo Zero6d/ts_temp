@@ -9,19 +9,24 @@ import React, {useState} from 'react';
 import {Field, useForm} from 'rc-field-form';
 import Icon from '@src/components/Icon';
 import {storage, StorageKey} from '@src/storage';
+import {useAuthenState} from '@src/atom/authen';
 
 const SignIn: React.FC<OutsideScreenProps<ScreensName.SignIn>> = ({
   navigation,
 }) => {
   const [form] = useForm();
   const [toggle, setToggle] = useState(false);
-  const _login = (value: any) => {
+  const [authenState, setAuthen] = useAuthenState();
+
+  const _login = () => {
     if (toggle) {
       storage.set(StorageKey.Authen, true);
     }
-    if (value) {
-      navigation.navigate(ScreensName.HomeRoute);
-    }
+
+    setAuthen({
+      ...authenState,
+      token: 'true',
+    });
   };
   return (
     <>

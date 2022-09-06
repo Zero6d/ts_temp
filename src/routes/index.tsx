@@ -1,6 +1,7 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import RootStackRoute from './RootStackRoute';
+import {useRehydrateAuthenState} from '@src/atom/authen';
 
 // import {
 //   useAuthenStateValue,
@@ -12,7 +13,7 @@ export default function Routes() {
   // const { loading: changeLanguageLoading, reinitialized } =
   //   useAuthenStateValue();
 
-  // useRehydrateAuthenState();
+  useRehydrateAuthenState();
 
   // if (reinitialized) {
   //   return null;

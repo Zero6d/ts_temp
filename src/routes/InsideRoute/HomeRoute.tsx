@@ -10,18 +10,7 @@ const HomeStack = createStackNavigator<HomeRouteStackScreensParams>();
 
 const HomeRoute = () => {
   return (
-    <HomeStack.Navigator
-      initialRouteName={ScreensName.Home}
-      screenOptions={{
-        headerLeft: () => <HeaderLeftBack />,
-        headerTitleAlign: 'center',
-        headerStyle: {
-          backgroundColor: COLORS.WHITE,
-        },
-        headerTitleStyle: {
-          color: COLORS.BLUE_500,
-        },
-      }}>
+    <HomeStack.Navigator initialRouteName={ScreensName.Home}>
       <HomeStack.Screen
         name={ScreensName.Home}
         component={Home}

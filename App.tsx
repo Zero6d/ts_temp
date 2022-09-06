@@ -10,9 +10,14 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import Routes from './src/routes';
+import {RecoilRoot} from 'recoil';
 
 const App = () => {
-  return <Routes />;
+  return (
+    <RecoilRoot>
+      <Routes />
+    </RecoilRoot>
+  );
 };
 
 export default App;

@@ -15,7 +15,7 @@ export enum ScreensName {
 }
 
 export type AccountStackScreensParams = {
-  // [ScreensName.HomeRoute]: undefined;
+  [ScreensName.Account]: undefined;
 };
 
 export type AccountRouteScreenProps<T extends keyof AccountStackScreensParams> =
