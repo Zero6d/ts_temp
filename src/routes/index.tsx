@@ -5,8 +5,8 @@ import RootStackRoute from './RootStackRoute';
 // import {
 //   useAuthenStateValue,
 //   useRehydrateAuthenState,
-// } from '@vbike/atom/authen';
-// import SettingUpLanguage from '@vbike/components/SettingUpLanguageLoading';
+// } from '@src/atom/authen';
+// import SettingUpLanguage from '@src/components/SettingUpLanguageLoading';
 
 export default function Routes() {
   // const { loading: changeLanguageLoading, reinitialized } =

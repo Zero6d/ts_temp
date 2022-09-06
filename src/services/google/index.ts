@@ -1,5 +1,5 @@
-import Configs from '@vbike/configs';
-import axios, { AxiosInstance } from 'axios';
+import Configs from '@src/configs';
+import axios, {AxiosInstance} from 'axios';
 
 type MapSize = {
   vertical: number;
@@ -77,9 +77,9 @@ const GoogleService: TGoogleService = () => {
     return result.data;
   };
 
-  const getPlacesDetails = async (params: { place_id: string }) => {
+  const getPlacesDetails = async (params: {place_id: string}) => {
     const result = await place.get(PATHS.PLACE_DETAILS, {
-      params: { ...params, key: Configs.GOOGLE_API_KEY },
+      params: {...params, key: Configs.GOOGLE_API_KEY},
     });
 
     return result.data;

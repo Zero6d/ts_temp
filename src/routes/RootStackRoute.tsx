@@ -1,7 +1,7 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import OutsideRoute from './OutsideRoute';
-// import { useAuthenStateValue } from '@vbike/atom/authen';
+// import { useAuthenStateValue } from '@src/atom/authen';
 import InsideRoute from './InsideRoute';
 import {RootStackScreensParams, ScreensName} from './types';
 

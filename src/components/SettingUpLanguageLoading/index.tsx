@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Animated, StyleSheet } from 'react-native';
-import COLORS from '@vbike/configs/theme/colors';
-import { FontFamilyNames } from '@vbike/configs/theme/typography';
-import i18n from '@vbike/utils/i18n';
+import React, {useEffect, useRef, useState} from 'react';
+import {Animated, StyleSheet} from 'react-native';
+import COLORS from '@src/configs/theme/colors';
+import {FontFamilyNames} from '@src/configs/theme/typography';
+import i18n from '@src/utils/i18n';
 
 import Box from '../Box';
 
@@ -46,8 +46,7 @@ const SettingUpLanguage = () => {
               style={[
                 styles.text,
                 shareVal < index ? styles.hide : styles.show,
-              ]}
-            >
+              ]}>
               {e}
             </Animated.Text>
           );

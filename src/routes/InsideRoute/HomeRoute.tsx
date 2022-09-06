@@ -1,16 +1,16 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
-import { HomeRouteStackScreensParams, ScreensName } from '../types';
-import HomeScreen from '@vbike/screens/Home';
-import ListNearStation from '@vbike/screens/ListNearStation';
-import HeaderLeftBack from '@vbike/components/HeaderLeftBack';
-import COLORS from '@vbike/configs/theme/colors';
-import SearchBicycle from '@vbike/screens/SearchBicycle';
-import DetailBicycle from '@vbike/screens/Home/DetailBicycle';
-import i18n from '@vbike/utils/i18n';
-import BuyTicketScreen from '@vbike/screens/BuyTicketScreen/BuyTicket';
-import RentScreen from '@vbike/screens/RentScreen';
-import RentSuccessScreen from '@vbike/screens/RentScreen/RentSuccessScreen';
+import {createStackNavigator} from '@react-navigation/stack';
+import {HomeRouteStackScreensParams, ScreensName} from '../types';
+import HomeScreen from '@src/screens/Home';
+import ListNearStation from '@src/screens/ListNearStation';
+import HeaderLeftBack from '@src/components/HeaderLeftBack';
+import COLORS from '@src/configs/theme/colors';
+import SearchBicycle from '@src/screens/SearchBicycle';
+import DetailBicycle from '@src/screens/Home/DetailBicycle';
+import i18n from '@src/utils/i18n';
+import BuyTicketScreen from '@src/screens/BuyTicketScreen/BuyTicket';
+import RentScreen from '@src/screens/RentScreen';
+import RentSuccessScreen from '@src/screens/RentScreen/RentSuccessScreen';
 
 const HomeStack = createStackNavigator<HomeRouteStackScreensParams>();
 
@@ -27,12 +27,11 @@ const HomeRoute = () => {
         headerTitleStyle: {
           color: COLORS.BLUE_500,
         },
-      }}
-    >
+      }}>
       <HomeStack.Screen
         name={ScreensName.HomeScreen}
         component={HomeScreen}
-        options={{ headerShown: false }}
+        options={{headerShown: false}}
       />
       <HomeStack.Screen
         name={ScreensName.ListNearStation}
@@ -99,12 +98,12 @@ const HomeRoute = () => {
       <HomeStack.Screen
         name={ScreensName.RentScreen}
         component={RentScreen}
-        options={{ headerShown: false }}
+        options={{headerShown: false}}
       />
       <HomeStack.Screen
         name={ScreensName.RentSuccessScreen}
         component={RentSuccessScreen}
-        options={{ headerShown: false }}
+        options={{headerShown: false}}
       />
     </HomeStack.Navigator>
   );

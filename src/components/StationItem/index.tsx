@@ -1,21 +1,21 @@
-import Box from '@vbike/components/Box';
-import Icon from '@vbike/components/Icon';
-import Typography from '@vbike/components/Typography';
-import COLORS from '@vbike/configs/theme/colors';
-import { ScreensName } from '@vbike/routes/types';
-import i18n from '@vbike/utils/i18n';
+import Box from '@src/components/Box';
+import Icon from '@src/components/Icon';
+import Typography from '@src/components/Typography';
+import COLORS from '@src/configs/theme/colors';
+import {ScreensName} from '@src/routes/types';
+import i18n from '@src/utils/i18n';
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 
 interface prop {
   navigation?: any;
   item?: any;
 }
 
-const StationItem: React.FC<prop> = ({ navigation, item }) => {
+const StationItem: React.FC<prop> = ({navigation, item}) => {
   const toLocation = (e: any) => {
     navigation.popToTop();
-    navigation.navigate(ScreensName.HomeScreen, { location: e });
+    navigation.navigate(ScreensName.HomeScreen, {location: e});
   };
   return (
     <>
@@ -23,8 +23,7 @@ const StationItem: React.FC<prop> = ({ navigation, item }) => {
         padding={[12, 16, 12, 16]}
         style={styles.container}
         activePress
-        onPress={() => toLocation(item)}
-      >
+        onPress={() => toLocation(item)}>
         <Box flexDirection="row" justify="space-between">
           <Box width={'75%'}>
             <Typography type="Subheader - Semibold">{item?.name}</Typography>
@@ -46,8 +45,7 @@ const StationItem: React.FC<prop> = ({ navigation, item }) => {
               <Typography
                 margin={[0, 0, 0, 12]}
                 type="Subheader - Regular"
-                color="BG_500"
-              >
+                color="BG_500">
                 {i18n.t('bike')} {item?.bicycles?.length}
               </Typography>
             </Box>
@@ -56,8 +54,7 @@ const StationItem: React.FC<prop> = ({ navigation, item }) => {
               <Typography
                 margin={[0, 0, 0, 12]}
                 type="Subheader - Regular"
-                color="BG_500"
-              >
+                color="BG_500">
                 {i18n.t('parking')} {item?.parking}
               </Typography>
             </Box>
@@ -66,8 +63,7 @@ const StationItem: React.FC<prop> = ({ navigation, item }) => {
               <Typography
                 margin={[0, 0, 0, 12]}
                 type="Subheader - Regular"
-                color="BG_500"
-              >
+                color="BG_500">
                 {i18n.t('open_time')} {item?.openTime}
               </Typography>
             </Box>
@@ -76,8 +72,7 @@ const StationItem: React.FC<prop> = ({ navigation, item }) => {
               <Typography
                 margin={[0, 0, 0, 12]}
                 type="Subheader - Regular"
-                color="BG_500"
-              >
+                color="BG_500">
                 {i18n.t('close_time')} {item?.closeTime}
               </Typography>
             </Box>
@@ -87,8 +82,7 @@ const StationItem: React.FC<prop> = ({ navigation, item }) => {
             <Box margin={[5, 0, 0, 0]}>
               <Typography
                 type="Subheader - Regular"
-                color={item?.isActive ? 'GREEN_400' : 'RED_400'}
-              >
+                color={item?.isActive ? 'GREEN_400' : 'RED_400'}>
                 {item?.isActive
                   ? i18n.t('station_active')
                   : i18n.t('station_inactive')}

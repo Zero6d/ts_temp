@@ -1,23 +1,23 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
-import { ScreensName, UnlockRouteStackScreensParams } from '../types';
-import COLORS from '@vbike/configs/theme/colors';
-import HeaderLeftBack from '@vbike/components/HeaderLeftBack';
-import UnlockScreen from '@vbike/screens/UnlockScreen';
-import i18n from '@vbike/utils/i18n';
-import EnterQrcode from '@vbike/screens/UnlockScreen/EnterQrcode';
-import UnlockErrorScreen from '@vbike/screens/UnlockScreen/UnlockError';
-import DetailBicycle from '@vbike/screens/Home/DetailBicycle';
-import SuppostScreen from '@vbike/screens/SupportScreen';
-import AddPoints from '@vbike/screens/AddPoints';
+import {createStackNavigator} from '@react-navigation/stack';
+import {ScreensName, UnlockRouteStackScreensParams} from '../types';
+import COLORS from '@src/configs/theme/colors';
+import HeaderLeftBack from '@src/components/HeaderLeftBack';
+import UnlockScreen from '@src/screens/UnlockScreen';
+import i18n from '@src/utils/i18n';
+import EnterQrcode from '@src/screens/UnlockScreen/EnterQrcode';
+import UnlockErrorScreen from '@src/screens/UnlockScreen/UnlockError';
+import DetailBicycle from '@src/screens/Home/DetailBicycle';
+import SuppostScreen from '@src/screens/SupportScreen';
+import AddPoints from '@src/screens/AddPoints';
 import PromoRoute from './PromoRoute';
-import HowToUseStep1 from '@vbike/screens/HowToUseStep1';
-import HowToUseStep3 from '@vbike/screens/HowToUseStep3';
-import HowToUseStep2 from '@vbike/screens/HowToUseStep2';
-import OnlinePayment from '@vbike/screens/OnlinePayment';
-import DetailPayment from '@vbike/screens/DetailPayment';
-import PaymentPage from '@vbike/screens/PaymentPage';
-import BuyTicketScreen from '@vbike/screens/BuyTicketScreen/BuyTicket';
+import HowToUseStep1 from '@src/screens/HowToUseStep1';
+import HowToUseStep3 from '@src/screens/HowToUseStep3';
+import HowToUseStep2 from '@src/screens/HowToUseStep2';
+import OnlinePayment from '@src/screens/OnlinePayment';
+import DetailPayment from '@src/screens/DetailPayment';
+import PaymentPage from '@src/screens/PaymentPage';
+import BuyTicketScreen from '@src/screens/BuyTicketScreen/BuyTicket';
 
 const UnlockStack = createStackNavigator<UnlockRouteStackScreensParams>();
 
@@ -33,8 +33,7 @@ const UnlockRoute = () => {
         headerTitleStyle: {
           color: COLORS.BLUE_500,
         },
-      }}
-    >
+      }}>
       <UnlockStack.Screen
         name={ScreensName.UnlockScreen}
         component={UnlockScreen}

@@ -1,4 +1,4 @@
-import { API_URL, GOOGLE_API_KEY, HEX_KEY, HEX_TOKEN_MESSAGE } from '@env';
+import {API_URL, GOOGLE_API_KEY, HEX_KEY, HEX_TOKEN_MESSAGE} from '@env';
 
 type Config = {
   API_URL: string;

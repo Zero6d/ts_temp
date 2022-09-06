@@ -1,7 +1,7 @@
-import { TextInputProps } from 'react-native';
-import { ReactNode } from 'react';
-import { Spacing } from '@vbike/configs/theme/common';
-import { Meta } from 'rc-field-form/es/interface';
+import {TextInputProps} from 'react-native';
+import {ReactNode} from 'react';
+import {Spacing} from '@src/configs/theme/common';
+import {Meta} from 'rc-field-form/es/interface';
 
 export interface InputProps extends Omit<TextInputProps, 'onChange'> {
   meta?: Meta;

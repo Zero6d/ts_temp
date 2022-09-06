@@ -1,41 +1,41 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
-import { AccountStackScreensParams, ScreensName } from '../types';
-import COLORS from '@vbike/configs/theme/colors';
-import KYCStep1 from '@vbike/screens/KYCStep1';
-import KYCStep2 from '@vbike/screens/KYCStep2';
-import KYCStep4 from '@vbike/screens/KYCStep4';
+import {createStackNavigator} from '@react-navigation/stack';
+import {AccountStackScreensParams, ScreensName} from '../types';
+import COLORS from '@src/configs/theme/colors';
+import KYCStep1 from '@src/screens/KYCStep1';
+import KYCStep2 from '@src/screens/KYCStep2';
+import KYCStep4 from '@src/screens/KYCStep4';
 
-import HeaderLeftBack from '@vbike/components/HeaderLeftBack';
+import HeaderLeftBack from '@src/components/HeaderLeftBack';
 import KYCStep3Route from './KYCStep3Route';
-import CameraScreen from '@vbike/screens/CameraScreen';
-import Account from '@vbike/screens/Account';
-import Profile from '@vbike/screens/Profile';
-import MyWallet from '@vbike/screens/MyWallet';
-import AddPoints from '@vbike/screens/AddPoints';
+import CameraScreen from '@src/screens/CameraScreen';
+import Account from '@src/screens/Account';
+import Profile from '@src/screens/Profile';
+import MyWallet from '@src/screens/MyWallet';
+import AddPoints from '@src/screens/AddPoints';
 import PromoRoute from './PromoRoute';
-import i18n from '@vbike/utils/i18n';
-import HeaderTitle from '@vbike/components/HeaderTitle';
-import OnlinePayment from '@vbike/screens/OnlinePayment';
-import DetailPayment from '@vbike/screens/DetailPayment';
-import HowToUseStep1 from '@vbike/screens/HowToUseStep1';
-import HowToUseStep3 from '@vbike/screens/HowToUseStep3';
-import HowToUseStep2 from '@vbike/screens/HowToUseStep2';
-import Setting from '@vbike/screens/Setting';
-import ChangePassword from '@vbike/screens/ChangePassword';
-import ChangeLanguage from '@vbike/screens/ChangeLanguage';
-import InviteFriend from '@vbike/screens/InviteFriend';
-import HistoryBuyTicketScreen from '@vbike/screens/BuyTicketScreen';
-import BuyTicketScreen from '@vbike/screens/BuyTicketScreen/BuyTicket';
-import ListNearStation from '@vbike/screens/ListNearStation';
-import MyTrip from '@vbike/screens/MyTrip';
-import NotificationAndNews from '@vbike/screens/NotificationAndNews';
-import Notification from '@vbike/screens/Notification';
-import News from '@vbike/screens/News';
-import DetailNewsAndNoti from '@vbike/screens/DetailNewsAndNoti';
-import SharePointScreen from '@vbike/screens/SharePointScreen';
-import SharePointDetail from '@vbike/screens/SharePointDetail';
-import PaymentPage from '@vbike/screens/PaymentPage';
+import i18n from '@src/utils/i18n';
+import HeaderTitle from '@src/components/HeaderTitle';
+import OnlinePayment from '@src/screens/OnlinePayment';
+import DetailPayment from '@src/screens/DetailPayment';
+import HowToUseStep1 from '@src/screens/HowToUseStep1';
+import HowToUseStep3 from '@src/screens/HowToUseStep3';
+import HowToUseStep2 from '@src/screens/HowToUseStep2';
+import Setting from '@src/screens/Setting';
+import ChangePassword from '@src/screens/ChangePassword';
+import ChangeLanguage from '@src/screens/ChangeLanguage';
+import InviteFriend from '@src/screens/InviteFriend';
+import HistoryBuyTicketScreen from '@src/screens/BuyTicketScreen';
+import BuyTicketScreen from '@src/screens/BuyTicketScreen/BuyTicket';
+import ListNearStation from '@src/screens/ListNearStation';
+import MyTrip from '@src/screens/MyTrip';
+import NotificationAndNews from '@src/screens/NotificationAndNews';
+import Notification from '@src/screens/Notification';
+import News from '@src/screens/News';
+import DetailNewsAndNoti from '@src/screens/DetailNewsAndNoti';
+import SharePointScreen from '@src/screens/SharePointScreen';
+import SharePointDetail from '@src/screens/SharePointDetail';
+import PaymentPage from '@src/screens/PaymentPage';
 
 const AccountStack = createStackNavigator<AccountStackScreensParams>();
 
@@ -52,8 +52,7 @@ const AccountRoute = () => {
         headerTitleStyle: {
           color: COLORS.BLUE_500,
         },
-      }}
-    >
+      }}>
       <AccountStack.Screen
         name={ScreensName.Account}
         component={Account}

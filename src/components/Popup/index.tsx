@@ -1,14 +1,14 @@
-import React, { useImperativeHandle, useState } from 'react';
-import { Linking, Modal, Platform } from 'react-native';
+import React, {useImperativeHandle, useState} from 'react';
+import {Linking, Modal, Platform} from 'react-native';
 import Box from '../Box';
 import Typography from '../Typography';
-import { container, defaultBox } from './styles';
+import {container, defaultBox} from './styles';
 import Icon from '../Icon';
 import Button from '../Button';
-import COLORS from '@vbike/configs/theme/colors';
-import i18n from '@vbike/utils/i18n';
-import { IconType } from '../Icon/type';
-import { StackActions, useNavigation } from '@react-navigation/native';
+import COLORS from '@src/configs/theme/colors';
+import i18n from '@src/utils/i18n';
+import {IconType} from '../Icon/type';
+import {StackActions, useNavigation} from '@react-navigation/native';
 
 type PopupState = {
   visible: boolean;
@@ -114,8 +114,8 @@ const Popup = React.forwardRef<PopUpRef, PopupProps>(({}, ref) => {
     }
   };
 
-  useImperativeHandle(ref, () => ({ error, success, dismiss }));
-  const scheme = Platform.select({ ios: 'maps:0,0?q=', android: 'geo:0,0?q=' });
+  useImperativeHandle(ref, () => ({error, success, dismiss}));
+  const scheme = Platform.select({ios: 'maps:0,0?q=', android: 'geo:0,0?q='});
   const latLng = `${state.buttonCurrentLoc && state.buttonCurrentLoc.lat},${
     state.buttonCurrentLoc && state?.buttonCurrentLoc?.long
   }`;
@@ -135,8 +135,7 @@ const Popup = React.forwardRef<PopUpRef, PopupProps>(({}, ref) => {
             textAlign="center"
             type="Body - Regular"
             margin={[12, 0, 12, 0]}
-            color="NEUTRAL_900"
-          >
+            color="NEUTRAL_900">
             {state.label}
           </Typography>
 
@@ -145,8 +144,7 @@ const Popup = React.forwardRef<PopUpRef, PopupProps>(({}, ref) => {
               textAlign="center"
               type="Caption - Regular"
               margin={[12, 0, 12, 0]}
-              color="MONO_700"
-            >
+              color="MONO_700">
               {state?.notification}
             </Typography>
           )}
@@ -177,14 +175,12 @@ const Popup = React.forwardRef<PopUpRef, PopupProps>(({}, ref) => {
               background="RED_700"
               borderRadius={12}
               flexDirection="row"
-              onPress={() => url && Linking.openURL(url)}
-            >
+              onPress={() => url && Linking.openURL(url)}>
               <Icon name="location_arrow" size={20} color={COLORS.WHITE} />
               <Typography
                 margin={[0, 0, 0, 10]}
                 type="Body - Semibold"
-                color="WHITE"
-              >
+                color="WHITE">
                 {i18n.t('Vị trí hiện tại')}
               </Typography>
             </Box>

@@ -1,11 +1,11 @@
-import Box from '@vbike/components/Box';
-import COLORS from '@vbike/configs/theme/colors';
-import { deviceWidth } from '@vbike/configs/theme/common';
-import { ScreensName } from '@vbike/routes/types';
-import i18n from '@vbike/utils/i18n';
+import Box from '@src/components/Box';
+import COLORS from '@src/configs/theme/colors';
+import {deviceWidth} from '@src/configs/theme/common';
+import {ScreensName} from '@src/routes/types';
+import i18n from '@src/utils/i18n';
 import React from 'react';
-import { StyleSheet } from 'react-native';
-import Svg, { Path, Rect } from 'react-native-svg';
+import {StyleSheet} from 'react-native';
+import Svg, {Path, Rect} from 'react-native-svg';
 import Icon from '../Icon';
 import Typography from '../Typography';
 
@@ -23,8 +23,8 @@ const CustomCurvedBottomTab = (props: any) => {
   const _goToPage = (e: any) => {
     props.navigation.navigate(MAP_URL[e]);
   };
-  const { state, descriptors } = props;
-  const { index: activeIcon } = state;
+  const {state, descriptors} = props;
+  const {index: activeIcon} = state;
   const focusedOptions = descriptors[state.routes[state.index].key].options;
   if (focusedOptions?.tabBarStyle?.display === 'flex') {
     return (
@@ -37,8 +37,7 @@ const CustomCurvedBottomTab = (props: any) => {
                 onPress={() => _goToPage(e - 1)}
                 activePress
                 align="center"
-                justify="space-between"
-              >
+                justify="space-between">
                 <Icon
                   name={icon[e - 1]}
                   size={20}
@@ -48,8 +47,7 @@ const CustomCurvedBottomTab = (props: any) => {
                   key={i}
                   margin={[5, 0, 0, 0]}
                   type="Small - Semibold"
-                  color={activeIcon === i ? 'WHITE' : 'MONO_300'}
-                >
+                  color={activeIcon === i ? 'WHITE' : 'MONO_300'}>
                   {i18n.t(label[e - 1])}
                 </Typography>
               </Box>
@@ -64,8 +62,7 @@ const CustomCurvedBottomTab = (props: any) => {
                 onPress={() => _goToPage(e - 1)}
                 activePress
                 align="center"
-                justify="space-between"
-              >
+                justify="space-between">
                 <Icon
                   name={icon[e - 1]}
                   size={20}
@@ -74,8 +71,7 @@ const CustomCurvedBottomTab = (props: any) => {
                 <Typography
                   margin={[5, 0, 0, 0]}
                   type="Small - Semibold"
-                  color={activeIcon === i + 3 ? 'WHITE' : 'MONO_300'}
-                >
+                  color={activeIcon === i + 3 ? 'WHITE' : 'MONO_300'}>
                   {i18n.t(label[e - 1])}
                 </Typography>
               </Box>

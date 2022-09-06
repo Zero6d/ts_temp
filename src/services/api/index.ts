@@ -1,9 +1,9 @@
-import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
-import TokenManagement from '@vbike/utils/TokenManagement';
+import axios, {AxiosInstance, AxiosRequestConfig} from 'axios';
+import TokenManagement from '@src/utils/TokenManagement';
 import dayjs from 'dayjs';
 import jwt_decode from 'jwt-decode';
-import { BACK_END_URL } from '@env';
-import { storage, StorageKey } from '@vbike/storage';
+import {BACK_END_URL} from '@env';
+import {storage, StorageKey} from '@src/storage';
 
 export const base: AxiosInstance = axios.create({
   baseURL: BACK_END_URL,
@@ -245,11 +245,11 @@ const apiService: TApiService = () => {
   //   const result = await base.post(API_PATHS.CREATE, params);
   //   return result.data;
   // };
-  const signInApi = async (params: { username: string; password: string }) => {
+  const signInApi = async (params: {username: string; password: string}) => {
     const result = await base.post(API_PATHS.SIGN_IN, params);
     return result.data;
   };
-  const loginApi = async (params: { username: string; password: string }) => {
+  const loginApi = async (params: {username: string; password: string}) => {
     const result = await base.post(API_PATHS.LOGIN, params);
     return result.data;
   };
@@ -281,7 +281,7 @@ const apiService: TApiService = () => {
     return result.data;
   };
 
-  const forgotRequestApi = async (params: { input: string }) => {
+  const forgotRequestApi = async (params: {input: string}) => {
     const result = await base.post(API_PATHS.FORGOT_PASSWORD_REQUEST, params);
     return result.data;
   };
@@ -294,7 +294,7 @@ const apiService: TApiService = () => {
     const result = await base.post(API_PATHS.FORGOT_PASSWORD_UPDATE, params);
     return result.data;
   };
-  const verifyPinApi = async (params: { key: string; pin: string }) => {
+  const verifyPinApi = async (params: {key: string; pin: string}) => {
     const result = await base.post(API_PATHS.VERIFY_PIN, params);
     return result.data;
   };

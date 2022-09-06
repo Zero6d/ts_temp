@@ -1,5 +1,5 @@
-import TextConfigs, { TypoKeys } from '@vbike/configs/theme/typography';
-import { StyleSheet, TextStyle } from 'react-native';
+import TextConfigs, {TypoKeys} from '@src/configs/theme/typography';
+import {StyleSheet, TextStyle} from 'react-native';
 
 type TypoStyle = {
   [key in TypoKeys]: TextStyle;

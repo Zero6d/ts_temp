@@ -1,12 +1,12 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
-import { BuyTicketRouteStackScreensParams, ScreensName } from '../types';
-import COLORS from '@vbike/configs/theme/colors';
-import HeaderLeftBack from '@vbike/components/HeaderLeftBack';
-import HistoryBuyTicketScreen from '@vbike/screens/BuyTicketScreen';
-import BuyTicketScreen from '@vbike/screens/BuyTicketScreen/BuyTicket';
+import {createStackNavigator} from '@react-navigation/stack';
+import {BuyTicketRouteStackScreensParams, ScreensName} from '../types';
+import COLORS from '@src/configs/theme/colors';
+import HeaderLeftBack from '@src/components/HeaderLeftBack';
+import HistoryBuyTicketScreen from '@src/screens/BuyTicketScreen';
+import BuyTicketScreen from '@src/screens/BuyTicketScreen/BuyTicket';
 
-import i18n from '@vbike/utils/i18n';
+import i18n from '@src/utils/i18n';
 
 const BuyTicketStack = createStackNavigator<BuyTicketRouteStackScreensParams>();
 
@@ -20,8 +20,7 @@ const BuyTicketRoute = () => {
         headerStyle: {
           backgroundColor: COLORS.WHITE,
         },
-      }}
-    >
+      }}>
       <BuyTicketStack.Screen
         name={ScreensName.HistoryBuyTicketScreen}
         component={HistoryBuyTicketScreen}

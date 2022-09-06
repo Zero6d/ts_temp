@@ -1,5 +1,5 @@
-import { useNavigation } from '@react-navigation/native';
-import COLORS from '@vbike/configs/theme/colors';
+import {useNavigation} from '@react-navigation/native';
+import COLORS from '@src/configs/theme/colors';
 import React from 'react';
 import Box from '../Box';
 import Icon from '../Icon';
@@ -21,8 +21,7 @@ const HeaderLeftBack: React.FC<defaultPriceProps> = ({
     <Box
       padding={[0, 0, marginBottom, 30]}
       activePress
-      onPress={onPress ? onPress : navigation.goBack}
-    >
+      onPress={onPress ? onPress : navigation.goBack}>
       <Icon
         size={30}
         name="arrow_left"

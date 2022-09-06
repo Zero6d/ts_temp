@@ -1,7 +1,7 @@
-import theme from '@vbike/configs/theme';
-import React, { useMemo } from 'react';
-import { StyleSheet, TouchableOpacity, View, ViewStyle } from 'react-native';
-import { BoxProps } from './types';
+import theme from '@src/configs/theme';
+import React, {useMemo} from 'react';
+import {StyleSheet, TouchableOpacity, View, ViewStyle} from 'react-native';
+import {BoxProps} from './types';
 
 const Box: React.FC<BoxProps> = ({
   activePress,
@@ -75,8 +75,7 @@ const Box: React.FC<BoxProps> = ({
         {...props}
         activeOpacity={0.7}
         style={StyleSheet.flatten([combinedStyle, props.style])}
-        onPress={onPress}
-      >
+        onPress={onPress}>
         {children}
       </TouchableOpacity>
     );

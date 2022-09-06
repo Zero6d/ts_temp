@@ -1,5 +1,5 @@
-import { Spacing } from '@vbike/configs/theme/common';
-import { ViewProps } from 'react-native';
+import {Spacing} from '@src/configs/theme/common';
+import {ViewProps} from 'react-native';
 
 export interface DataPickerProps extends ViewProps {
   label?: string;

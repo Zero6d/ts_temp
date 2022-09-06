@@ -1,13 +1,13 @@
-import { useRecoilState } from 'recoil';
-import { Platform } from 'react-native';
-import { useRequest } from 'ahooks';
-import { useEffect, useCallback, useRef } from 'react';
-import { NativeEventEmitter, NativeModules } from 'react-native';
+import {useRecoilState} from 'recoil';
+import {Platform} from 'react-native';
+import {useRequest} from 'ahooks';
+import {useEffect, useCallback, useRef} from 'react';
+import {NativeEventEmitter, NativeModules} from 'react-native';
 import toLower from 'lodash/toLower';
 import useBluetoothPermission from '../useBluetoothPermission';
 import BleManagerAS from 'react-native-ble-manager';
 import CryptoJS from 'crypto-js';
-import { bluetoothAtom, LOCK_STATE } from '@vbike/atom/bluetooth';
+import {bluetoothAtom, LOCK_STATE} from '@src/atom/bluetooth';
 import * as encoding from './encoding';
 
 const service = '0000fee7-0000-1000-8000-00805f9b34fb';
@@ -47,7 +47,7 @@ interface ILockOptions<T> {
   onError?: (value?: T) => void;
 }
 
-const useLockService = ({ onSuccess, onError }: ILockOptions<any>) => {
+const useLockService = ({onSuccess, onError}: ILockOptions<any>) => {
   const markedId = useRef<string | undefined>();
   const [bluetooth, setBluetoothState] = useRecoilState(bluetoothAtom);
   const refValue = useRef<string | undefined>();
@@ -74,7 +74,7 @@ const useLockService = ({ onSuccess, onError }: ILockOptions<any>) => {
           await BleManagerAS.stopScan();
           await BleManagerAS.connect(peripheral.id);
           await BleManagerAS.retrieveServices(peripheral.id);
-          setBluetoothState({ state: LOCK_STATE.IS_UNLOCKING });
+          setBluetoothState({state: LOCK_STATE.IS_UNLOCKING});
           BleManagerAS.startNotification(
             peripheral.id,
             service,
@@ -87,7 +87,7 @@ const useLockService = ({ onSuccess, onError }: ILockOptions<any>) => {
             Encrypt([6, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]),
           );
         } catch (error) {
-          setBluetoothState({ state: LOCK_STATE.IS_ERROR });
+          setBluetoothState({state: LOCK_STATE.IS_ERROR});
           BleManagerAS.disconnect(peripheral.id);
         }
       }
@@ -123,7 +123,7 @@ const useLockService = ({ onSuccess, onError }: ILockOptions<any>) => {
   });
 
   const handleUpdateValueForCharacteristic = useCallback(
-    async ({ value, peripheral }: IUpdatedValue) => {
+    async ({value, peripheral}: IUpdatedValue) => {
       if (value?.length > 0 && value.join('') !== refValue.current) {
         try {
           refValue.current = value.join('');
@@ -156,9 +156,9 @@ const useLockService = ({ onSuccess, onError }: ILockOptions<any>) => {
               0,
             ]),
           );
-          setBluetoothState({ state: LOCK_STATE.IS_SUCCEED });
+          setBluetoothState({state: LOCK_STATE.IS_SUCCEED});
         } catch (error) {
-          setBluetoothState({ state: LOCK_STATE.IS_ERROR });
+          setBluetoothState({state: LOCK_STATE.IS_ERROR});
           await BleManagerAS.disconnect(peripheral);
         }
       }
@@ -167,7 +167,7 @@ const useLockService = ({ onSuccess, onError }: ILockOptions<any>) => {
   );
 
   const reset = useCallback(() => {
-    setBluetoothState({ state: undefined });
+    setBluetoothState({state: undefined});
     refBluetoothState.current = undefined;
     refValue.current = undefined;
   }, [setBluetoothState]);
@@ -176,7 +176,7 @@ const useLockService = ({ onSuccess, onError }: ILockOptions<any>) => {
 
   const scanRequest = useRequest(
     async (id: string) => {
-      setBluetoothState({ state: LOCK_STATE.IS_SCANNING });
+      setBluetoothState({state: LOCK_STATE.IS_SCANNING});
       markedId.current = id;
       if (!id) {
         throw new Error('Id is undefined');
@@ -186,7 +186,7 @@ const useLockService = ({ onSuccess, onError }: ILockOptions<any>) => {
     {
       manual: true,
       onError: () => {
-        setBluetoothState({ state: LOCK_STATE.IS_ERROR });
+        setBluetoothState({state: LOCK_STATE.IS_ERROR});
       },
     },
   );

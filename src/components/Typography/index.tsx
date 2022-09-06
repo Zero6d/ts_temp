@@ -1,9 +1,9 @@
-import theme from '@vbike/configs/theme';
-import React, { useMemo } from 'react';
-import { StyleSheet, Text, TextStyle } from 'react-native';
-import { TypographyProps } from './types';
+import theme from '@src/configs/theme';
+import React, {useMemo} from 'react';
+import {StyleSheet, Text, TextStyle} from 'react-native';
+import {TypographyProps} from './types';
 import styles from './styles';
-import COLORS from '@vbike/configs/theme/colors';
+import COLORS from '@src/configs/theme/colors';
 
 const Typography: React.FC<TypographyProps> = ({
   type,
@@ -63,8 +63,7 @@ const Typography: React.FC<TypographyProps> = ({
     <Text
       allowFontScaling={false}
       {...props}
-      style={[stylesDefault.default, combinedStyle, props.style]}
-    >
+      style={[stylesDefault.default, combinedStyle, props.style]}>
       {children}
     </Text>
   );

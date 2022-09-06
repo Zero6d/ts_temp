@@ -1,5 +1,5 @@
-import ButtonStyleConfigs from '@vbike/configs/theme/button';
-import { StyleSheet, ViewStyle } from 'react-native';
+import ButtonStyleConfigs from '@src/configs/theme/button';
+import {StyleSheet, ViewStyle} from 'react-native';
 
 type ButtonStyle = {
   [key in keyof typeof ButtonStyleConfigs]: ViewStyle;

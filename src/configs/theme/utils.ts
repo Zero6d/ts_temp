@@ -6,8 +6,8 @@ import {
   Align,
   Spacing,
   TextAlign,
-} from '@vbike/configs/theme/common';
-import { ViewStyle, TextStyle } from 'react-native';
+} from '@src/configs/theme/common';
+import {ViewStyle, TextStyle} from 'react-native';
 import COLORS from './colors';
 
 const styles: any = {
@@ -31,23 +31,23 @@ const styles: any = {
     return inputs;
   },
   minWidth: (minWidth: string | number): ViewStyle => {
-    return { minWidth };
+    return {minWidth};
   },
   background: (color: keyof typeof COLORS): ViewStyle => {
-    return { backgroundColor: COLORS[color] };
+    return {backgroundColor: COLORS[color]};
   },
   color: (color: keyof typeof COLORS): TextStyle => {
-    return { color: COLORS[color] };
+    return {color: COLORS[color]};
   },
   fontSize: (fontSize: number): TextStyle => {
-    return { fontSize };
+    return {fontSize};
   },
 
   lineHeight: (lineHeight: number): TextStyle => {
-    return { lineHeight };
+    return {lineHeight};
   },
   letterSpacing: (letterSpacing: number): TextStyle => {
-    return { letterSpacing };
+    return {letterSpacing};
   },
   textAlign: (alignment: TextAlign): TextStyle => {
     return {
@@ -55,13 +55,13 @@ const styles: any = {
     };
   },
   width: (width: string | number): ViewStyle => {
-    return { width };
+    return {width};
   },
   height: (height: string | number): ViewStyle => {
-    return { height };
+    return {height};
   },
   flex: (number: number): ViewStyle => {
-    return { flex: number };
+    return {flex: number};
   },
   flexDirection: (direction: FlexDirection): ViewStyle => {
     return {
@@ -137,6 +137,6 @@ const styles: any = {
   },
 };
 
-const utils = { styles };
+const utils = {styles};
 
 export default utils;

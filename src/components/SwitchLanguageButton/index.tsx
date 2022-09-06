@@ -1,9 +1,9 @@
-import { useChangeLanguage } from '@vbike/atom/authen';
-import COLORS from '@vbike/configs/theme/colors';
-import { FontFamilyNames } from '@vbike/configs/theme/typography';
-import { storage, StorageKey } from '@vbike/storage';
+import {useChangeLanguage} from '@src/atom/authen';
+import COLORS from '@src/configs/theme/colors';
+import {FontFamilyNames} from '@src/configs/theme/typography';
+import {storage, StorageKey} from '@src/storage';
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 import Animated, {
   interpolate,
   useAnimatedStyle,
@@ -16,7 +16,7 @@ const SwitchLanguageButton: React.FC = () => {
   const val = useSharedValue(
     storage.getString(StorageKey.Language) === 'vi' ? 0 : 1,
   );
-  const { changeLanguage } = useChangeLanguage();
+  const {changeLanguage} = useChangeLanguage();
 
   const handlePress = () => {
     if (val.value === 0) {
@@ -31,20 +31,20 @@ const SwitchLanguageButton: React.FC = () => {
 
   const circleAnimatedStyle = useAnimatedStyle(() => {
     return {
-      transform: [{ translateX: withTiming(val.value * 27) }],
+      transform: [{translateX: withTiming(val.value * 27)}],
     };
   });
 
   const leftTextAnimatedStyle = useAnimatedStyle(() => {
     return {
-      transform: [{ translateX: interpolate(val.value, [0, 1], [0, 4]) }],
+      transform: [{translateX: interpolate(val.value, [0, 1], [0, 4])}],
       opacity: interpolate(val.value, [0, 1], [0, 1]),
     };
   });
 
   const rightTextAnimatedStyle = useAnimatedStyle(() => {
     return {
-      transform: [{ translateX: interpolate(val.value, [0, 1], [-4, 0]) }],
+      transform: [{translateX: interpolate(val.value, [0, 1], [-4, 0])}],
       opacity: interpolate(val.value, [0, 1], [1, 0]),
     };
   });

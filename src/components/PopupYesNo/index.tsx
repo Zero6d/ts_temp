@@ -1,12 +1,12 @@
-import React, { useImperativeHandle, useState } from 'react';
-import { Modal, StyleSheet } from 'react-native';
+import React, {useImperativeHandle, useState} from 'react';
+import {Modal, StyleSheet} from 'react-native';
 import Box from '../Box';
 import Typography from '../Typography';
 import Icon from '../Icon';
 import Button from '../Button';
-import COLORS from '@vbike/configs/theme/colors';
-import i18n from '@vbike/utils/i18n';
-import { deviceWidth } from '@vbike/configs/theme/common';
+import COLORS from '@src/configs/theme/colors';
+import i18n from '@src/utils/i18n';
+import {deviceWidth} from '@src/configs/theme/common';
 
 type PopupState = {
   visible: boolean;
@@ -49,7 +49,7 @@ const PopupYesNo = React.forwardRef<PopUpYesNoRef, PopupProps>(({}, ref) => {
       description: '',
     });
   };
-  useImperativeHandle(ref, () => ({ open, dismiss }));
+  useImperativeHandle(ref, () => ({open, dismiss}));
 
   const yesOption = () => {
     state.onPress();
@@ -75,8 +75,7 @@ const PopupYesNo = React.forwardRef<PopUpYesNoRef, PopupProps>(({}, ref) => {
               align="center"
               justify="center"
               activePress
-              onPress={dismiss}
-            >
+              onPress={dismiss}>
               <Typography type="Body - Semibold">{i18n.t('no')}</Typography>
             </Box>
             <Box
@@ -86,8 +85,7 @@ const PopupYesNo = React.forwardRef<PopUpYesNoRef, PopupProps>(({}, ref) => {
               align="center"
               justify="center"
               activePress
-              onPress={yesOption}
-            >
+              onPress={yesOption}>
               <Typography type="Body - Semibold" color="WHITE">
                 {i18n.t('yes')}
               </Typography>

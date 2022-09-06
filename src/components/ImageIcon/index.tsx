@@ -1,7 +1,7 @@
 import React from 'react';
-import { Image, ImageStyle } from 'react-native';
+import {Image, ImageStyle} from 'react-native';
 import Box from '../Box';
-import { BoxProps } from '../Box/types';
+import {BoxProps} from '../Box/types';
 import resources from './resources';
 
 type ImageIconName = 'logo' | 'vi' | 'en' | 'crown' | string;

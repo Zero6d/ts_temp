@@ -1,5 +1,5 @@
-import { deviceWidth } from '@vbike/configs/theme/common';
-import { StyleSheet } from 'react-native';
+import {deviceWidth} from '@src/configs/theme/common';
+import {StyleSheet} from 'react-native';
 
 export const defaultContainer: any = StyleSheet.create<any>({
   backgroundColor: 'rgba(0,0,0,0.5)',

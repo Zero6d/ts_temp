@@ -1,12 +1,12 @@
-import Box from '@vbike/components/Box';
-import COLORS from '@vbike/configs/theme/colors';
-import { deviceHeight, deviceWidth } from '@vbike/configs/theme/common';
-import i18n from '@vbike/utils/i18n';
+import Box from '@src/components/Box';
+import COLORS from '@src/configs/theme/colors';
+import {deviceHeight, deviceWidth} from '@src/configs/theme/common';
+import i18n from '@src/utils/i18n';
 import dayjs from 'dayjs';
-import React, { useRef } from 'react';
-import { Platform, StyleSheet } from 'react-native';
-import { isIphoneX } from 'react-native-iphone-x-helper';
-import { Modalize } from 'react-native-modalize';
+import React, {useRef} from 'react';
+import {Platform, StyleSheet} from 'react-native';
+import {isIphoneX} from 'react-native-iphone-x-helper';
+import {Modalize} from 'react-native-modalize';
 import Animated, {
   Extrapolate,
   interpolate,
@@ -92,28 +92,25 @@ const Datepicker = () => {
         modalStyle={styles.modalContainer}
         childrenStyle={styles.itemContainer}
         withHandle={false}
-        useNativeDriver
-      >
+        useNativeDriver>
         <Box
           align="center"
           background="WHITE"
           margin={[0, 0, 0, 30]}
-          borderRadius={8}
-        >
+          borderRadius={8}>
           <Box width="95%" height={50} style={styles.bg} background="BG_100" />
           <Typography padding={10} type="Title - Regular" color="MONO_500">
             {i18n.t('dob')}
           </Typography>
           <Box width="100%" height={1} background="BG_200" />
           <Box flexDirection="row">
-            <Animated.View style={{ height: 250 }}>
+            <Animated.View style={{height: 250}}>
               <Animated.ScrollView
                 onScroll={scrollHandlerx}
                 showsVerticalScrollIndicator={false}
                 scrollEventThrottle={16}
                 snapToAlignment={'center'}
-                snapToInterval={50}
-              >
+                snapToInterval={50}>
                 {day.map((e, index) => (
                   <Animated.View key={`key-${index}`}>
                     <AnimatedComponent index={index} sv={sx} e={e} />
@@ -121,14 +118,13 @@ const Datepicker = () => {
                 ))}
               </Animated.ScrollView>
             </Animated.View>
-            <Animated.View style={{ height: 250 }}>
+            <Animated.View style={{height: 250}}>
               <Animated.ScrollView
                 onScroll={scrollHandlery}
                 showsVerticalScrollIndicator={false}
                 scrollEventThrottle={16}
                 snapToAlignment={'center'}
-                snapToInterval={50}
-              >
+                snapToInterval={50}>
                 {month.map((e, index) => (
                   <Animated.View key={`key-${index}`}>
                     <AnimatedComponent index={index} sv={sy} e={e} />
@@ -136,14 +132,13 @@ const Datepicker = () => {
                 ))}
               </Animated.ScrollView>
             </Animated.View>
-            <Animated.View style={{ height: 250 }}>
+            <Animated.View style={{height: 250}}>
               <Animated.ScrollView
                 onScroll={scrollHandlerz}
                 showsVerticalScrollIndicator={false}
                 scrollEventThrottle={16}
                 snapToAlignment={'center'}
-                snapToInterval={50}
-              >
+                snapToInterval={50}>
                 {years.map((e, index) => (
                   <Animated.View key={`key-${index}`}>
                     <AnimatedComponent index={index} sv={sz} e={e} />
@@ -182,7 +177,7 @@ interface Props {
   e?: any;
 }
 
-const AnimatedComponent: React.FC<Props> = ({ sv, index, e }) => {
+const AnimatedComponent: React.FC<Props> = ({sv, index, e}) => {
   const stylez = useAnimatedStyle(() => {
     return {
       transform: [
@@ -226,8 +221,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  modalContainer: { backgroundColor: 'transparent' },
-  bg: { position: 'absolute', top: 150, zIndex: 0, borderRadius: 12 },
+  modalContainer: {backgroundColor: 'transparent'},
+  bg: {position: 'absolute', top: 150, zIndex: 0, borderRadius: 12},
   button: {
     position: 'absolute',
     bottom: Platform.select({

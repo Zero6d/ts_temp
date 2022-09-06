@@ -1,11 +1,11 @@
-import theme from '@vbike/configs/theme';
-import React, { useMemo } from 'react';
-import { ActivityIndicator, StyleSheet, ViewStyle } from 'react-native';
+import theme from '@src/configs/theme';
+import React, {useMemo} from 'react';
+import {ActivityIndicator, StyleSheet, ViewStyle} from 'react-native';
 import Box from '../Box';
 import Typography from '../Typography';
-import { ButtonProps } from './types';
+import {ButtonProps} from './types';
 import styles from './styles';
-import COLORS from '@vbike/configs/theme/colors';
+import COLORS from '@src/configs/theme/colors';
 
 const Button: React.FC<ButtonProps> = ({
   type,
@@ -99,8 +99,7 @@ const Button: React.FC<ButtonProps> = ({
       flexDirection="row"
       style={StyleSheet.flatten([combinedStyle, props.style])}
       activePress={props.loading ? false : true}
-      {...props}
-    >
+      {...props}>
       {prefix}
       <Box flex={suffix ? 1 : 0}>
         {props.loading && (
@@ -111,8 +110,7 @@ const Button: React.FC<ButtonProps> = ({
           <Typography
             type={textType ? textType : text}
             color={textColor ? textColor : 'WHITE'}
-            numberOfLines={1}
-          >
+            numberOfLines={1}>
             {label}
           </Typography>
         )}

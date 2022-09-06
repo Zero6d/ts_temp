@@ -1,9 +1,9 @@
-import { TextProps } from 'react-native';
-import { Spacing, TextAlign } from '@vbike/configs/theme/common';
-import { ReactNode } from 'react';
+import {TextProps} from 'react-native';
+import {Spacing, TextAlign} from '@src/configs/theme/common';
+import {ReactNode} from 'react';
 
-import { TypoKeys } from '@vbike/configs/theme/typography';
-import COLORS from '@vbike/configs/theme/colors';
+import {TypoKeys} from '@src/configs/theme/typography';
+import COLORS from '@src/configs/theme/colors';
 export interface TypographyProps extends TextProps {
   type?: TypoKeys;
   color?: keyof typeof COLORS;

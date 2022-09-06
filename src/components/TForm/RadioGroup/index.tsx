@@ -1,12 +1,12 @@
-import Box from '@vbike/components/Box';
-import Icon from '@vbike/components/Icon';
-import Typography from '@vbike/components/Typography';
-import theme from '@vbike/configs/theme';
-import COLORS from '@vbike/configs/theme/colors';
-import React, { useMemo } from 'react';
-import { StyleSheet, ViewStyle } from 'react-native';
+import Box from '@src/components/Box';
+import Icon from '@src/components/Icon';
+import Typography from '@src/components/Typography';
+import theme from '@src/configs/theme';
+import COLORS from '@src/configs/theme/colors';
+import React, {useMemo} from 'react';
+import {StyleSheet, ViewStyle} from 'react-native';
 
-import { RadioGroupProps } from './types';
+import {RadioGroupProps} from './types';
 
 const RadioGroup: React.FC<RadioGroupProps> = ({
   horizontal,
@@ -50,8 +50,7 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
               activePress
               onPress={() => props.onChange(i.value)}
               style={i.value === props.value ? styleActive : styleNotActive}
-              justify="space-between"
-            >
+              justify="space-between">
               <Typography margin={[0, 15, 0, 0]} type="Subheader - Medium">
                 {i.label}
               </Typography>
@@ -59,8 +58,7 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
                 <Typography
                   margin={[0, 15, 0, 0]}
                   type="Caption - Regular"
-                  color="BG_500"
-                >
+                  color="BG_500">
                   {i.extraData}
                 </Typography>
                 {i.value !== props.value ? (

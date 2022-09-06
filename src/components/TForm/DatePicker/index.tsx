@@ -1,11 +1,11 @@
-import Box from '@vbike/components/Box';
-import Icon from '@vbike/components/Icon';
-import Typography from '@vbike/components/Typography';
-import COLORS from '@vbike/configs/theme/colors';
-import React, { useState } from 'react';
+import Box from '@src/components/Box';
+import Icon from '@src/components/Icon';
+import Typography from '@src/components/Typography';
+import COLORS from '@src/configs/theme/colors';
+import React, {useState} from 'react';
 import DatePicker from 'react-native-date-picker';
-import { defaultInput } from './styles';
-import { DataPickerProps } from './types';
+import {defaultInput} from './styles';
+import {DataPickerProps} from './types';
 import dayjs from 'dayjs';
 
 const DataPickerComponent: React.FC<DataPickerProps> = ({
@@ -26,8 +26,7 @@ const DataPickerComponent: React.FC<DataPickerProps> = ({
             <Typography
               margin={[0, 0, 5, 0]}
               type="Caption - Regular"
-              color="MONO_700"
-            >
+              color="MONO_700">
               {label}
             </Typography>
           )}
@@ -57,8 +56,7 @@ const DataPickerComponent: React.FC<DataPickerProps> = ({
               setOpentCalender(true);
             }}
             activePress
-            padding={[0, 10, 0, 0]}
-          >
+            padding={[0, 10, 0, 0]}>
             <Icon name="calendar" size={24} color={COLORS.MONO_700} />
           </Box>
         </Box>

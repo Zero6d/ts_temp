@@ -1,7 +1,7 @@
-import { FontFamilyNames } from '@vbike/configs/theme/typography';
-import COLORS from '@vbike/configs/theme/colors';
-import inputConfigs, { inputKeys } from '@vbike/configs/theme/input';
-import { StyleSheet, ViewStyle } from 'react-native';
+import {FontFamilyNames} from '@src/configs/theme/typography';
+import COLORS from '@src/configs/theme/colors';
+import inputConfigs, {inputKeys} from '@src/configs/theme/input';
+import {StyleSheet, ViewStyle} from 'react-native';
 
 type inputStyle = {
   [key in inputKeys]: ViewStyle;

@@ -1,6 +1,6 @@
-import PopupStyleConfigs from '@vbike/configs/theme/popup';
-import { StyleSheet, ViewStyle } from 'react-native';
-import COLORS from '@vbike/configs/theme/colors';
+import PopupStyleConfigs from '@src/configs/theme/popup';
+import {StyleSheet, ViewStyle} from 'react-native';
+import COLORS from '@src/configs/theme/colors';
 
 type PopupStyle = {
   [key in keyof typeof PopupStyleConfigs]: ViewStyle;

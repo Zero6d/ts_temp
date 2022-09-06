@@ -4,10 +4,10 @@ import {
   AlignSelf,
   Spacing,
   Justify,
-} from '@vbike/configs/theme/common';
-import COLORS from '@vbike/configs/theme/colors';
-import { TouchableOpacityProps, ViewProps } from 'react-native';
-import { ReactNode } from 'react';
+} from '@src/configs/theme/common';
+import COLORS from '@src/configs/theme/colors';
+import {TouchableOpacityProps, ViewProps} from 'react-native';
+import {ReactNode} from 'react';
 
 type BackgroundColor = keyof typeof COLORS;
 

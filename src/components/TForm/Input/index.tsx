@@ -1,10 +1,10 @@
-import Box from '@vbike/components/Box';
-import Icon from '@vbike/components/Icon';
-import LoadingScreen from '@vbike/components/Loading';
-import Typography from '@vbike/components/Typography';
-import theme from '@vbike/configs/theme';
-import COLORS from '@vbike/configs/theme/colors';
-import React, { useMemo } from 'react';
+import Box from '@src/components/Box';
+import Icon from '@src/components/Icon';
+import LoadingScreen from '@src/components/Loading';
+import Typography from '@src/components/Typography';
+import theme from '@src/configs/theme';
+import COLORS from '@src/configs/theme/colors';
+import React, {useMemo} from 'react';
 import {
   ActivityIndicator,
   StyleSheet,
@@ -12,9 +12,9 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import { borderError, borderInput, defaultInput, stylesText } from './styles';
+import {borderError, borderInput, defaultInput, stylesText} from './styles';
 
-import { InputProps } from './types';
+import {InputProps} from './types';
 
 const Input: React.FC<InputProps> = ({
   label,
@@ -77,14 +77,12 @@ const Input: React.FC<InputProps> = ({
       <>
         <View
           style={StyleSheet.flatten([combinedStyle])}
-          onLayout={containerOnLayout}
-        >
+          onLayout={containerOnLayout}>
           {label && (
             <Typography
               margin={[0, 0, 5, 0]}
               type="Caption - Regular"
-              color="MONO_700"
-            >
+              color="MONO_700">
               {label}{' '}
               {required ? (
                 <Typography type="Caption - Regular" color="RED_500">
@@ -99,8 +97,7 @@ const Input: React.FC<InputProps> = ({
               props.value && borderInput,
               props.style && props.style,
               meta && meta.errors && meta.errors[0] && borderError,
-            ])}
-          >
+            ])}>
             {prefix}
             <Box flex={1}>
               {loading ? (
@@ -153,8 +150,7 @@ const Input: React.FC<InputProps> = ({
               <Typography
                 margin={[0, 0, 5, 0]}
                 type="Caption - Regular"
-                color="RED_500"
-              >
+                color="RED_500">
                 {meta?.errors}
               </Typography>
             </Box>

@@ -1,13 +1,13 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Box from '@vbike/components/Box';
-import Icon from '@vbike/components/Icon';
-import { IconType } from '@vbike/components/Icon/type';
-import COLORS from '@vbike/configs/theme/colors';
-import i18n from '@vbike/utils/i18n';
-import React, { useEffect } from 'react';
-import { Alert, Platform } from 'react-native';
-import { isIphoneX } from 'react-native-iphone-x-helper';
-import { InsideScreenParams, ScreensName } from '../types';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import Box from '@src/components/Box';
+import Icon from '@src/components/Icon';
+import {IconType} from '@src/components/Icon/type';
+import COLORS from '@src/configs/theme/colors';
+import i18n from '@src/utils/i18n';
+import React, {useEffect} from 'react';
+import {Alert, Platform} from 'react-native';
+import {isIphoneX} from 'react-native-iphone-x-helper';
+import {InsideScreenParams, ScreensName} from '../types';
 import AccountRoute from './AccountRoute';
 import BuyTicketRoute from './BuyTicketRoute';
 import HomeRoute from './HomeRoute';
@@ -38,7 +38,7 @@ const InsideRoute = () => {
   return (
     <RootTabs.Navigator
       initialRouteName={ScreensName.HomeRoute}
-      screenOptions={({ route }) => ({
+      screenOptions={({route}) => ({
         headerShown: false,
         tabBarStyle: {
           backgroundColor: COLORS.WHITE,
@@ -52,7 +52,7 @@ const InsideRoute = () => {
         tabBarIconStyle: {
           marginTop: 10,
         },
-        tabBarIcon: ({ color, size }) => {
+        tabBarIcon: ({color, size}) => {
           let iconName: IconType | undefined;
           if (route.name === ScreensName.HomeRoute) {
             iconName = 'updated_home';
@@ -78,8 +78,7 @@ const InsideRoute = () => {
                 background="PRIMARY_500"
                 circle={60}
                 align="center"
-                justify="center"
-              >
+                justify="center">
                 <Icon name={iconName} size={40} color={COLORS.WHITE} />
               </Box>
             );
@@ -87,17 +86,16 @@ const InsideRoute = () => {
         },
         tabBarActiveTintColor: COLORS.PRIMARY_500,
         tabBarInactiveTintColor: COLORS.MONO_500,
-      })}
-    >
+      })}>
       <RootTabs.Screen
         name={ScreensName.HomeRoute}
         component={HomeRoute}
-        options={{ tabBarLabel: i18n.t('home') }}
+        options={{tabBarLabel: i18n.t('home')}}
       />
       <RootTabs.Screen
         name={ScreensName.RentRoute}
         component={RentRoute}
-        options={{ tabBarLabel: i18n.t('renting_bike') }}
+        options={{tabBarLabel: i18n.t('renting_bike')}}
       />
       <RootTabs.Screen
         name={ScreensName.UnlockRoute}
@@ -109,7 +107,7 @@ const InsideRoute = () => {
       <RootTabs.Screen
         name={ScreensName.BuyTicketRoute}
         component={BuyTicketRoute}
-        options={{ tabBarLabel: i18n.t('buy_ticket') }}
+        options={{tabBarLabel: i18n.t('buy_ticket')}}
       />
       <RootTabs.Screen
         name={ScreensName.AccountTab}

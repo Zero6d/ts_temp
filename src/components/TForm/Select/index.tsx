@@ -1,9 +1,9 @@
-import Box from '@vbike/components/Box';
-import Icon from '@vbike/components/Icon';
-import Typography from '@vbike/components/Typography';
-import theme from '@vbike/configs/theme';
-import React, { useMemo } from 'react';
-import { Image, Modal, StyleSheet, ViewStyle } from 'react-native';
+import Box from '@src/components/Box';
+import Icon from '@src/components/Icon';
+import Typography from '@src/components/Typography';
+import theme from '@src/configs/theme';
+import React, {useMemo} from 'react';
+import {Image, Modal, StyleSheet, ViewStyle} from 'react-native';
 import SelectItem from './SelectItem';
 import {
   borderError,
@@ -17,16 +17,16 @@ import {
   PanGestureHandlerGestureEvent,
   ScrollView,
 } from 'react-native-gesture-handler';
-import { bottomSheet, bottomSheetHeader } from './styles';
+import {bottomSheet, bottomSheetHeader} from './styles';
 import Animated, {
   useAnimatedGestureHandler,
   useAnimatedStyle,
   useSharedValue,
   withSpring,
 } from 'react-native-reanimated';
-import { SelectProps } from './types';
-import { deviceHeight } from '@vbike/configs/theme/common';
-import COLORS from '@vbike/configs/theme/colors';
+import {SelectProps} from './types';
+import {deviceHeight} from '@src/configs/theme/common';
+import COLORS from '@src/configs/theme/colors';
 
 interface SelectState {
   visible: boolean;
@@ -70,7 +70,7 @@ const Select: React.FC<SelectProps> = ({
     return style;
   }, [margin, padding]);
 
-  const [state, setState] = React.useState<SelectState>({ visible: false });
+  const [state, setState] = React.useState<SelectState>({visible: false});
 
   const SPRING_CONFIG = {
     overshootClamping: true,
@@ -120,8 +120,7 @@ const Select: React.FC<SelectProps> = ({
             <Typography
               margin={[0, 0, 5, 0]}
               type="Caption - Regular"
-              color="MONO_100"
-            >
+              color="MONO_100">
               {label}
             </Typography>
           )}
@@ -140,8 +139,7 @@ const Select: React.FC<SelectProps> = ({
             meta && meta.errors && meta.errors[0] && borderError,
           ]}
           activePress
-          onPress={() => setState({ visible: true })}
-        >
+          onPress={() => setState({visible: true})}>
           {type && type === 'imageUpload' && (
             <Icon name="image_upload" size={50} color={COLORS.BRAND} />
           )}
@@ -152,7 +150,7 @@ const Select: React.FC<SelectProps> = ({
           {props.value && !camera ? (
             <>
               {type ? (
-                <Image source={{ uri: props.value.uri }} style={imageStyle} />
+                <Image source={{uri: props.value.uri}} style={imageStyle} />
               ) : (
                 <Typography type="Subheader - Regular">
                   {props.value.label || props.value}
@@ -201,8 +199,7 @@ const Select: React.FC<SelectProps> = ({
             <Typography
               margin={[0, 0, 5, 0]}
               type="Caption - Regular"
-              color="RED_500"
-            >
+              color="RED_500">
               {meta?.errors}
             </Typography>
           </Box>
@@ -212,7 +209,7 @@ const Select: React.FC<SelectProps> = ({
           <Box
             style={defaultContainer}
             activePress
-            onPress={() => setState({ visible: false })}
+            onPress={() => setState({visible: false})}
           />
           <PanGestureHandler onGestureEvent={onGestureEvent}>
             <Animated.View style={[bottomSheet, sheetStyle]}>

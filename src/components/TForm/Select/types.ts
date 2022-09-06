@@ -1,7 +1,7 @@
-import { Spacing } from '@vbike/configs/theme/common';
-import { Meta } from 'rc-field-form/es/interface';
-import { ReactNode } from 'react';
-import { ViewProps } from 'react-native';
+import {Spacing} from '@src/configs/theme/common';
+import {Meta} from 'rc-field-form/es/interface';
+import {ReactNode} from 'react';
+import {ViewProps} from 'react-native';
 
 interface option {
   label?: string;

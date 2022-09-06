@@ -1,7 +1,7 @@
-import COLORS from '@vbike/configs/theme/colors';
+import COLORS from '@src/configs/theme/colors';
 import AnimatedLottieView from 'lottie-react-native';
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import {StyleSheet, View} from 'react-native';
 
 const LoadingScreen: React.FC<any> = () => {
   return (
