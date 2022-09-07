@@ -12,6 +12,10 @@ export enum ScreensName {
   Account = 'Account',
   HomeRoute = 'HomeRoute',
   AccountRoute = 'AccountRoute',
+  PresetComponent = 'PresetComponent',
+  FlashListDemo = 'FlashListDemo',
+  API = 'API',
+  Animation = 'Animation',
 }
 
 export type AccountStackScreensParams = {
@@ -46,6 +50,10 @@ export type UnlockRouteStackScreensProps<
 
 export type HomeRouteStackScreensParams = {
   [ScreensName.Home]: undefined;
+  [ScreensName.PresetComponent]: undefined;
+  [ScreensName.FlashListDemo]: undefined;
+  [ScreensName.API]: undefined;
+  [ScreensName.Animation]: undefined;
 };
 
 export type HomeRouteScreenProps<T extends keyof HomeRouteStackScreensParams> =

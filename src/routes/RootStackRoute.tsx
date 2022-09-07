@@ -10,7 +10,6 @@ const RootStack = createStackNavigator<RootStackScreensParams>();
 
 const RootStackRoute = () => {
   const authen = useAuthenStateValue();
-
   return (
     <RootStack.Navigator screenOptions={{headerShown: false}}>
       {authen.token ? (

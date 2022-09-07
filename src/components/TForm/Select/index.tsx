@@ -43,7 +43,7 @@ const Select: React.FC<SelectProps> = ({
   preicon,
   suficon,
   meta,
-  imageApi,
+  // imageApi,
   onPress,
   camera,
   ...props
@@ -140,22 +140,22 @@ const Select: React.FC<SelectProps> = ({
           ]}
           activePress
           onPress={() => setState({visible: true})}>
-          {type && type === 'imageUpload' && (
+          {/* {type && type === 'imageUpload' && (
             <Icon name="image_upload" size={50} color={COLORS.BRAND} />
           )}
           {type && type !== 'imageUpload' && (
             <Icon name="image_upload" size={25} color={COLORS.BLUE_GREY_700} />
-          )}
+          )} */}
 
           {props.value && !camera ? (
             <>
-              {type ? (
+              {/* {type ? (
                 <Image source={{uri: props.value.uri}} style={imageStyle} />
-              ) : (
-                <Typography type="Subheader - Regular">
-                  {props.value.label || props.value}
-                </Typography>
-              )}
+              ) : ( */}
+              <Typography type="Subheader - Regular">
+                {props.value.label || props.value}
+              </Typography>
+              {/* )} */}
             </>
           ) : (
             <>
@@ -164,7 +164,7 @@ const Select: React.FC<SelectProps> = ({
                   {placeholder}
                 </Typography>
               )}
-              {type && camera && (
+              {/* {type && camera && (
                 <>
                   {type === 'imageFront' && (
                     <Image
@@ -183,7 +183,7 @@ const Select: React.FC<SelectProps> = ({
                     />
                   )}
                 </>
-              )}
+              )} */}
               {type && !camera && (
                 <Typography type="Caption - Semibold" color="MONO_300">
                   {placeholder}
@@ -226,7 +226,7 @@ const Select: React.FC<SelectProps> = ({
                   return (
                     <Box key={`key_${index}`}>
                       <SelectItem
-                        imageApi={imageApi}
+                        // imageApi={imageApi}
                         onChange={props.onChange}
                         option={i}
                         icon={preicon}

@@ -2,13 +2,7 @@ import {TextStyle} from 'react-native';
 import {COLORS} from '@src/configs/theme/colors';
 import {BoxProps} from './../Box/types';
 
-type ButtonType =
-  | 'primary'
-  | 'ghost'
-  | 'add'
-  | 'added'
-  | 'addCard'
-  | 'placeholder';
+type ButtonType = 'primary' | 'ghost';
 
 import {ReactNode} from 'react';
 import {TypoKeys} from '@src/configs/theme/typography';

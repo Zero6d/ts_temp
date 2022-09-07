@@ -1,5 +1,5 @@
 import React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
+import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 
 // import LogoHeaderLeft from '@src/components/LogoHeaderLeft';
 
@@ -10,7 +10,11 @@ const OutsideStack = createStackNavigator<OutsideScreenParams>();
 
 const OutsideRoute = () => {
   return (
-    <OutsideStack.Navigator initialRouteName={ScreensName.SignIn}>
+    <OutsideStack.Navigator
+      initialRouteName={ScreensName.SignIn}
+      screenOptions={() => ({
+        ...TransitionPresets.SlideFromRightIOS,
+      })}>
       <OutsideStack.Screen
         name={ScreensName.SignIn}
         component={SignIn}

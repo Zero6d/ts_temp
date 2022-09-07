@@ -20,7 +20,7 @@ const SignIn: React.FC<OutsideScreenProps<ScreensName.SignIn>> = ({
 
   const _login = () => {
     if (toggle) {
-      storage.set(StorageKey.Authen, true);
+      storage.set(StorageKey.Authen, 'true');
     }
 
     setAuthen({
@@ -53,7 +53,7 @@ const SignIn: React.FC<OutsideScreenProps<ScreensName.SignIn>> = ({
               );
             }}
           </Field>
-          <Field
+          {/* <Field
             name="password"
             rules={[{required: true, message: 'error_field_required'}]}>
             {({onChange, value}, meta) => {
@@ -68,7 +68,7 @@ const SignIn: React.FC<OutsideScreenProps<ScreensName.SignIn>> = ({
                 />
               );
             }}
-          </Field>
+          </Field> */}
           <Box flexDirection="row" align="center" alignSelf="flex-end">
             <Typography>{i18n.t('sign_in_remember')}</Typography>
             <Box

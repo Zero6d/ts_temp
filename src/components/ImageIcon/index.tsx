@@ -4,7 +4,7 @@ import Box from '../Box';
 import {BoxProps} from '../Box/types';
 import resources from './resources';
 
-type ImageIconName = 'logo' | 'vi' | 'en' | 'crown' | string;
+type ImageIconName = 'south_korea' | 'vi' | 'en' | 'crown' | string;
 
 const ImageIcon = ({
   name,
