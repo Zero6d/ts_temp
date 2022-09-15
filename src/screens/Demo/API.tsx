@@ -4,6 +4,7 @@ import Box from '@src/components/Box';
 import Typography from '@src/components/Typography';
 import COLORS from '@src/configs/theme/colors';
 import {deviceWidth} from '@src/configs/theme/common';
+import {withNetworkConnection} from '@src/hooks/useCheckNetwork/withNetworkConnection';
 import {HomeRouteScreenProps, ScreensName} from '@src/routes/types';
 import {getAllDummy} from '@src/services/api/getAll';
 import i18n from '@src/utils/i18n';
@@ -70,4 +71,4 @@ const API: React.FC<HomeRouteScreenProps<ScreensName.API>> = ({navigation}) => {
     );
   }
 };
-export default API;
+export default withNetworkConnection(API);
