@@ -21,8 +21,8 @@ const API_PATHSFunc =
   <U extends T>(argument: U) =>
     argument;
 
-const DUMMY_GET_ALL: FunctionReturnString = (perPage: number) =>
-  `products?limit=${perPage}`;
+const DUMMY_GET_ALL: FunctionReturnString = (limit: any, skip: any) =>
+  `products?limit=${limit}&skip=${skip}`;
 
 export const API_PATHS = API_PATHSFunc<IAPI_PATHS>()({
   DUMMY_GET_ALL,

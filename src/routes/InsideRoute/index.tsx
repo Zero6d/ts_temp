@@ -34,7 +34,7 @@ const InsideRoute = () => {
           }
           return <Icon name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: COLORS.PRIMARY_500,
+        tabBarActiveTintColor: COLORS.BLUE_400,
         tabBarInactiveTintColor: COLORS.MONO_500,
       })}>
       <RootTabs.Screen

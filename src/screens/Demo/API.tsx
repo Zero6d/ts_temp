@@ -1,60 +1,73 @@
+import {useFocusEffect} from '@react-navigation/native';
+import {FlashList} from '@shopify/flash-list';
 import Box from '@src/components/Box';
-import useFlatlist from '@src/hooks/useFlatlist';
+import Typography from '@src/components/Typography';
+import COLORS from '@src/configs/theme/colors';
+import {deviceWidth} from '@src/configs/theme/common';
 import {HomeRouteScreenProps, ScreensName} from '@src/routes/types';
 import {getAllDummy} from '@src/services/api/getAll';
+import i18n from '@src/utils/i18n';
+import {useInfiniteScroll} from 'ahooks';
 import React from 'react';
+import {ActivityIndicator} from 'react-native';
+import FastImage from 'react-native-fast-image';
 
-const API: React.FC<HomeRouteScreenProps<ScreensName.API>> = ({}) => {
-  const {flatListProps, data, loading} = useFlatlist(
-    async ({...rest}) => {
-      const result = await getAllDummy();
-      return {...result, list: data?.data};
-    },
+const API: React.FC<HomeRouteScreenProps<ScreensName.API>> = ({navigation}) => {
+  const parent = navigation.getParent();
+  useFocusEffect(
+    React.useCallback(() => {
+      parent && parent.setOptions({tabBarStyle: {display: 'none'}});
+    }, []),
+  );
+  async function loadMoreList(nextId: any, limit: number) {
+    let start = 0;
+    if (nextId) {
+      start = nextId;
+    }
+    const end = start + limit;
+    const list = await getAllDummy(limit, end);
+    return {list: list.products, total: end === list?.total};
+  }
+  const limit = 10;
+  const {data, loading, loadingMore, loadMore, noMore} = useInfiniteScroll(
+    (d: any) => loadMoreList(d?.list?.length, limit),
     {
-      isNoMore: (r: any) => {
-        return r?.page >= r?.totalPage;
-      },
-
-      loadMore: true,
+      isNoMore: d => (d?.total ? d?.total : false),
     },
   );
-  // const { flatListProps, loading, data } = useFlatlist(
-  //   async ({ ...rest }) => {
-  //     const { page_info } = rest;
-  //     const query = _buildQuery(filter);
-  //     const result = await listBrand({
-  //       ...(query || {}),
-  //       page: !page_info ? 1 : page_info?.current_page + 1,
-  //       pageSize: 50,
-  //     });
-  //     return { ...result, list: result?.items };
-  //   },
-  //   {
-  //     contentFooter: renderFooter,
-  //     isNoMore: r => {
-  //       if (!r.page_info) {
-  //         return false;
-  //       }
-  //       return r?.page_info?.current_page >= r?.page_info?.total_pages;
-  //     },
-  //     // onSuccess: () => {
-  //     //   flatListRef.current &&
-  //     //     flatListRef.current.scrollToOffset({ animated: false, offset: 0 });
-  //     // },
-  //     debounceInterval: 250,
-  //     refreshDeps: [filter],
-  //     loadMore: true,
-  //   },
-  // );
-  return (
-    <>
-      <Box
-        padding={[20, 16]}
-        background="BG_100"
-        flex={1}
-        justify="center"></Box>
-    </>
-  );
+  if (loading || !data) return null;
+  if (data) {
+    return (
+      <>
+        <Box padding={[20, 16]} background="BG_100" flex={1}>
+          <FlashList
+            data={data.list}
+            renderItem={({item}: any) => (
+              <>
+                <Typography type="Body - Regular">{item?.brand}</Typography>
+                <FastImage
+                  style={{width: 200, height: 150}}
+                  source={{
+                    uri: item?.images[0],
+                  }}
+                  resizeMode={FastImage.resizeMode.stretch}
+                />
+              </>
+            )}
+            ListFooterComponent={
+              <>
+                {!noMore && loadingMore && (
+                  <ActivityIndicator size="small" color={COLORS.BLACK} />
+                )}
+                {noMore && <Typography>{i18n.t('no_more_data')}</Typography>}
+              </>
+            }
+            onEndReached={() => loadMore()}
+            estimatedItemSize={100}
+          />
+        </Box>
+      </>
+    );
+  }
 };
-
 export default API;
