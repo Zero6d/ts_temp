@@ -64,7 +64,6 @@ const FlashListDemo: React.FC<
   );
   if (loading || !data) return null;
   if (data) {
-    console.log(noMore);
     return (
       <>
         <Box padding={[20, 16]} background="BG_100" flex={1}>

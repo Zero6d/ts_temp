@@ -3,7 +3,6 @@ import {FlashList} from '@shopify/flash-list';
 import Box from '@src/components/Box';
 import Typography from '@src/components/Typography';
 import COLORS from '@src/configs/theme/colors';
-import {deviceWidth} from '@src/configs/theme/common';
 import {withNetworkConnection} from '@src/hooks/useCheckNetwork/withNetworkConnection';
 import {HomeRouteScreenProps, ScreensName} from '@src/routes/types';
 import {getAllDummy} from '@src/services/api/getAll';
@@ -36,7 +35,9 @@ const API: React.FC<HomeRouteScreenProps<ScreensName.API>> = ({navigation}) => {
       isNoMore: d => (d?.total ? d?.total : false),
     },
   );
-  if (loading || !data) return null;
+  if (loading || !data) {
+    return null;
+  }
   if (data) {
     return (
       <>

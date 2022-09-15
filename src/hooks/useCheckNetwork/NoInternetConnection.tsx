@@ -1,3 +1,4 @@
+import React from 'react';
 import {Image, StyleSheet} from 'react-native';
 import i18n from '@src/utils/i18n';
 import Box from '@src/components/Box';
