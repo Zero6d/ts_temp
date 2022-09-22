@@ -17,6 +17,8 @@ import RadioGroup from '@src/components/TForm/RadioGroup';
 import Select from '@src/components/TForm/Select';
 import {useFocusEffect} from '@react-navigation/native';
 import LoadingScreen from '@src/components/Loading';
+import RNDateTimePicker from '@react-native-community/datetimepicker';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 const PresetComponent: React.FC<
   HomeRouteScreenProps<ScreensName.PresetComponent>
@@ -39,6 +41,13 @@ const PresetComponent: React.FC<
       value: 2,
     },
   ];
+  const [date, setDate] = React.useState(new Date(1598051730000));
+  const [show, setShow] = React.useState(false);
+  const onChange = (event, selectedDate) => {
+    const currentDate = selectedDate;
+    setShow(false);
+    setDate(currentDate);
+  };
   return (
     <>
       <Box padding={[20, 16]} background="BG_100" flex={1}>
@@ -59,7 +68,7 @@ const PresetComponent: React.FC<
             size={200}
             align="center"
             justify="center">
-            <Box size={100} background="BG_700"></Box>
+            <Box size={100} background="BG_700" />
           </Box>
           <Typography margin={[20, 0, 20, 0]} type="Body - Semibold">
             {i18n.t('Typography')}
@@ -86,12 +95,13 @@ const PresetComponent: React.FC<
           <Typography margin={[20, 0, 20, 0]} type="Body - Semibold">
             {i18n.t('Button')}
           </Typography>
-          <Button type="primary" label="test"></Button>
+          <Button type="primary" label="test" />
           <Button
             margin={[20, 0, 0, 0]}
             type="ghost"
             label="test"
-            textColor="PRIMARY_500"></Button>
+            textColor="PRIMARY_500"
+          />
           <Button
             margin={[20, 0, 0, 0]}
             width={100}
@@ -99,29 +109,32 @@ const PresetComponent: React.FC<
             background="YELLOW_600"
             label="test"
             textType="Title - Semibold"
-            textColor="BLACK"></Button>
+            textColor="BLACK"
+          />
           <Typography margin={[20, 0, 20, 0]} type="Body - Semibold">
             {i18n.t('Icon')}
           </Typography>
-          <Icon name="wrench" size={50} color={COLORS.RED_400}></Icon>
-          <Icon name="star" size={50} color={COLORS.YELLOW_400}></Icon>
-          <Icon name="shield" size={50} color={COLORS.GREEN_400}></Icon>
+          <Icon name="wrench" size={50} color={COLORS.RED_400} />
+          <Icon name="star" size={50} color={COLORS.YELLOW_400} />
+          <Icon name="shield" size={50} color={COLORS.GREEN_400} />
           <Typography margin={[20, 0, 20, 0]} type="Body - Semibold">
             {i18n.t('ImageIcon')}
           </Typography>
-          <ImageIcon style={{width: 50, height: 50}} name="crown"></ImageIcon>
-          <ImageIcon style={{width: 150, height: 150}} name="vi"></ImageIcon>
+          <ImageIcon style={{width: 50, height: 50}} name="crown" />
+          <ImageIcon style={{width: 150, height: 150}} name="vi" />
           <ImageIcon
             style={{width: 100, height: 100, backgroundColor: '#bababa'}}
-            name="south_korea"></ImageIcon>
+            name="south_korea"
+          />
           <Typography margin={[20, 0, 20, 0]} type="Body - Semibold">
             {i18n.t('Popup')}
           </Typography>
           <Button
             width={100}
             onPress={() => ref.current?.success('test', 'test')}
-            label="test popup"></Button>
-          <Popup ref={ref}></Popup>
+            label="test popup"
+          />
+          <Popup ref={ref} />
           <Typography margin={[20, 0, 20, 0]} type="Body - Semibold">
             {i18n.t('Form')}
           </Typography>
@@ -198,6 +211,15 @@ const PresetComponent: React.FC<
               }}
             </Field>
           </TForm>
+          {/* <Button onPress={() => setShow(true)} /> */}
+          {/* {show && ( */}
+          <DateTimePicker
+            value={date}
+            mode={'date'}
+            is24Hour={true}
+            onChange={onChange}
+          />
+          {/* )} */}
         </ScrollView>
       </Box>
     </>
