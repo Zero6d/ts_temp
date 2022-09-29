@@ -211,14 +211,13 @@ const PresetComponent: React.FC<
               }}
             </Field>
           </TForm>
-          <Button onPress={() => setShow(true)} />
+          {/* <Button onPress={() => setShow(true)} /> */}
           {/* {show && ( */}
           <DateTimePicker
             value={date}
             mode={'date'}
             is24Hour={true}
             onChange={onChange}
-            display={'spinner'}
           />
           {/* )} */}
         </ScrollView>
