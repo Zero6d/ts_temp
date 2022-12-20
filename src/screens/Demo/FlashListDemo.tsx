@@ -20,22 +20,23 @@ const FlashListDemo: React.FC<
       parent && parent.setOptions({tabBarStyle: {display: 'none'}});
     }, []),
   );
-  const resultData = [
-    '0',
-    '1',
-    '2',
-    '3',
-    '4',
-    '5',
-    '6',
-    '7',
-    '8',
-    '9',
-    '10',
-    '11',
-    '12',
-    '13',
-  ];
+  // const resultData = [
+  //   '0',
+  //   '1',
+  //   '2',
+  //   '3',
+  //   '4',
+  //   '5',
+  //   '6',
+  //   '7',
+  //   '8',
+  //   '9',
+  //   '10',
+  //   '11',
+  //   '12',
+  //   '13',
+  // ];
+  const resultData = Array(1000000).fill(1);
   function loadMoreList(
     nextId: string | undefined,
     limit: number,
@@ -71,7 +72,9 @@ const FlashListDemo: React.FC<
             data={data.list}
             renderItem={({item}) => (
               <>
-                <Typography type="Body - Regular">{item}</Typography>
+                <Typography margin={[10, 0, 10, 0]} type="Body - Regular">
+                  item {item}
+                </Typography>
               </>
             )}
             onEndReached={() => loadMore()}
