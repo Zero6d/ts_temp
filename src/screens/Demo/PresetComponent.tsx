@@ -1,33 +1,29 @@
 import Box from '@src/components/Box';
 import Button from '@src/components/Button';
-import Datepicker from '@src/components/TForm/DatePicker';
 import Icon from '@src/components/Icon';
 import ImageIcon from '@src/components/ImageIcon';
 import Typography from '@src/components/Typography';
 import COLORS from '@src/configs/theme/colors';
-import {HomeRouteScreenProps, ScreensName} from '@src/routes/types';
+import { HomeRouteScreenProps, ScreensName } from '@src/routes/types';
 import i18n from '@src/utils/i18n';
 import React from 'react';
-import {ScrollView, StyleSheet} from 'react-native';
-import Popup, {PopUpRef} from '@src/components/Popup';
+import { ScrollView, StyleSheet } from 'react-native';
+import Popup, { PopUpRef } from '@src/components/Popup';
 import Input from '@src/components/TForm/Input';
 import TForm from '@src/components/TForm';
-import {Field, useForm} from 'rc-field-form';
+import { Field, useForm } from 'rc-field-form';
 import RadioGroup from '@src/components/TForm/RadioGroup';
 import Select from '@src/components/TForm/Select';
-import {useFocusEffect} from '@react-navigation/native';
-import LoadingScreen from '@src/components/Loading';
-import RNDateTimePicker from '@react-native-community/datetimepicker';
-import DateTimePicker from '@react-native-community/datetimepicker';
+import { useFocusEffect } from '@react-navigation/native';
 
 const PresetComponent: React.FC<
   HomeRouteScreenProps<ScreensName.PresetComponent>
-> = ({navigation}) => {
+> = ({ navigation }) => {
   const ref = React.useRef<PopUpRef>();
   const parent = navigation.getParent();
   useFocusEffect(
     React.useCallback(() => {
-      parent && parent.setOptions({tabBarStyle: {display: 'none'}});
+      parent && parent.setOptions({ tabBarStyle: { display: 'none' } });
     }, []),
   );
   const [form] = useForm();
@@ -67,7 +63,8 @@ const PresetComponent: React.FC<
             background="BG_400"
             size={200}
             align="center"
-            justify="center">
+            justify="center"
+          >
             <Box size={100} background="BG_700" />
           </Box>
           <Typography margin={[20, 0, 20, 0]} type="Body - Semibold">
@@ -79,14 +76,16 @@ const PresetComponent: React.FC<
           <Typography
             type="Headline - Regular"
             color="RED_400"
-            textAlign="right">
+            textAlign="right"
+          >
             test
           </Typography>
           <Typography
             type="Title - Semibold"
             color="BLUE_400"
             textAlign="center"
-            underline>
+            underline
+          >
             test
           </Typography>
           <Typography fontSize={50} color="BLACK" textAlign="center">
@@ -120,10 +119,10 @@ const PresetComponent: React.FC<
           <Typography margin={[20, 0, 20, 0]} type="Body - Semibold">
             {i18n.t('ImageIcon')}
           </Typography>
-          <ImageIcon style={{width: 50, height: 50}} name="crown" />
-          <ImageIcon style={{width: 150, height: 150}} name="vi" />
+          <ImageIcon style={{ width: 50, height: 50 }} name="crown" />
+          <ImageIcon style={{ width: 150, height: 150 }} name="vi" />
           <ImageIcon
-            style={{width: 100, height: 100, backgroundColor: '#bababa'}}
+            style={{ width: 100, height: 100, backgroundColor: '#bababa' }}
             name="south_korea"
           />
           <Typography margin={[20, 0, 20, 0]} type="Body - Semibold">
@@ -143,7 +142,7 @@ const PresetComponent: React.FC<
               {i18n.t('Input')}
             </Typography>
             <Field name="test">
-              {({onChange, value}, meta) => {
+              {({ onChange, value }, meta) => {
                 return (
                   <Input
                     onChange={onChange}
@@ -158,9 +157,10 @@ const PresetComponent: React.FC<
             <Field
               name="test2"
               rules={[
-                {required: true, message: i18n.t('error_field_required')},
-              ]}>
-              {({onChange, value}, meta) => {
+                { required: true, message: i18n.t('error_field_required') },
+              ]}
+            >
+              {({ onChange, value }, meta) => {
                 return (
                   <Input
                     onChange={onChange}
@@ -175,7 +175,7 @@ const PresetComponent: React.FC<
               {i18n.t('RadioGroup')}
             </Typography>
             <Field name="test3">
-              {({onChange, value}, meta) => {
+              {({ onChange, value }, meta) => {
                 return (
                   <RadioGroup
                     options={dummy}
@@ -190,7 +190,7 @@ const PresetComponent: React.FC<
               {i18n.t('Select')}
             </Typography>
             <Field name="test4">
-              {({onChange, value}, meta) => {
+              {({ onChange, value }, meta) => {
                 return (
                   <Select
                     margin={[12, 0, 0, 0]}
@@ -212,15 +212,6 @@ const PresetComponent: React.FC<
             </Field>
           </TForm>
           <Button onPress={() => setShow(true)} />
-          {/* {show && ( */}
-          <DateTimePicker
-            value={date}
-            mode={'date'}
-            is24Hour={true}
-            onChange={onChange}
-            display={'spinner'}
-          />
-          {/* )} */}
         </ScrollView>
       </Box>
     </>
