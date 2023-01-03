@@ -5,6 +5,7 @@ module.exports = {
       'module:react-native-dotenv',
       {
         moduleName: '@env',
+        path: '.env',
       },
     ],
     [
@@ -15,6 +16,12 @@ module.exports = {
         alias: {
           '@src': './src',
         },
+      },
+    ],
+    [
+      'babel-plugin-inline-import',
+      {
+        extensions: ['.svg'],
       },
     ],
     'react-native-reanimated/plugin',
