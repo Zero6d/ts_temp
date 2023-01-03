@@ -9,6 +9,12 @@ export const isPhoneNumber = (value: any) => {
   return /^[0-9]{10}$/.test(value.toLowerCase());
 };
 
+export const isVietnamPhoneNumber = (value: any) => {
+  return /^(03[2-9]|05[689]|07[06789]|08[1-9]|09[0-9])([0-9]{7})$/.test(
+    value.toLowerCase(),
+  );
+};
+
 export const isCCCD = (value: any) => {
   return /^[0-9]{9,15}$/.test(value.toLowerCase());
 };
