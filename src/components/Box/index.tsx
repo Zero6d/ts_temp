@@ -1,7 +1,34 @@
 import theme from '@src/configs/theme';
+import COLORS from '@src/configs/theme/colors';
+import {
+  Align,
+  AlignSelf,
+  FlexDirection,
+  Justify,
+  Spacing,
+} from '@src/configs/theme/common';
 import React, {useMemo} from 'react';
 import {StyleSheet, TouchableOpacity, View, ViewStyle} from 'react-native';
 import {BoxProps} from './types';
+
+type BackgroundColor = keyof typeof COLORS;
+interface BoxStyleProps {
+  flexDirection?: FlexDirection;
+  justify?: Justify;
+  align?: Align;
+  alignSelf?: AlignSelf;
+  flex?: number;
+  background?: BackgroundColor;
+  size?: number;
+  circle?: number;
+  height?: string | number;
+  width?: string | number;
+  minWidth?: string | number;
+  minHeight?: string | number;
+  margin?: Spacing;
+  padding?: Spacing;
+  borderRadius?: Spacing;
+}
 
 const Box: React.FC<BoxProps> = ({
   activePress,
@@ -24,7 +51,7 @@ const Box: React.FC<BoxProps> = ({
   ...props
 }) => {
   const combinedStyle: ViewStyle[] = useMemo(() => {
-    const styleObject: any = {
+    const styleObject: {[key: string]: any} = {
       flexDirection,
       justify,
       align,
