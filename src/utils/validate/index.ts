@@ -1,4 +1,3 @@
-import {replaceString} from '@src/hooks/replaceString';
 import i18n from '../i18n';
 
 export const isNumber = (value: any) => {
@@ -26,7 +25,7 @@ export const isEmail = (value: any) => {
 };
 
 export const isPassword = (value: any) => {
-  return /^(?=.*?[A-Z])(?=.*?[a-z]).{8,16}$/.test(value);
+  return /^(?=.*?[a-z]).{8,16}$/.test(value);
 };
 
 export const validateNumber = () => {
@@ -55,13 +54,12 @@ export const validatePhone = () => {
   };
 };
 
-export const validatePhoneIsTheSame = (user_phone: string) => {
+export const validatePhoneVietNam = () => {
   return {
     validator: async (rule: any, value: any) => {
       if (value) {
-        const phoneValidateVn = replaceString('0', '84', value, 1);
-        if (user_phone === phoneValidateVn) {
-          throw new Error(i18n.t('phone_cannot_be_the_same'));
+        if (!isVietnamPhoneNumber(value)) {
+          throw new Error(i18n.t('invalid_phone'));
         }
       }
       return Promise.resolve();
@@ -112,7 +110,7 @@ export const validateConfirmPassword = (form: any) => {
   return {
     validator: async (rule: any, value: any) => {
       if (value) {
-        if (value !== form.getFieldValue('new_password')) {
+        if (value !== form.getFieldValue('password')) {
           throw new Error(i18n.t('password_not_match'));
         }
         return Promise.resolve();
@@ -154,7 +152,7 @@ export const validateMoneySmaller = (
   form?: any,
 ) => {
   return {
-    validator: async (rule: any, value: any) => {
+    validator: async (value: any) => {
       if (value) {
         value = value.replace(/,/g, '');
         if (!isNumber(value)) {

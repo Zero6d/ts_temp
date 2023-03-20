@@ -5,5 +5,5 @@ export const storage = new MMKV();
 export enum StorageKey {
   Language = 'Language',
   Authen = 'Authen',
-  HistorySearch = 'HistorySearch',
+  Refresh_token = 'Refresh_token',
 }
